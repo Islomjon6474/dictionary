@@ -6,8 +6,19 @@ import axios from "axios";
 function App() {
   const [dataResponse, setDataResponse] = useState("");
   const [data, setData] = useState([]);
+  const inputRef = useRef("");
 
-  const inputRef = useRef();
+  useEffect(() => {
+    document.addEventListener(
+      "keydown",
+      (e) => {
+        if (e.key == "Enter") {
+          dataFetch(inputRef.current.value);
+        }
+      },
+      true
+    );
+  }, []);
 
   let url = "";
   for (let i = 0; i < data[0]?.phonetics.length; i++) {
@@ -30,6 +41,7 @@ function App() {
       setDataResponse(
         "Sorry, we couldn't find definitions for the word you were looking for."
       );
+      setData([]);
     }
   };
   console.log(data);
@@ -61,7 +73,16 @@ function App() {
                 <p className="phonetic">{data[0].phonetic}</p>
               </div>
               <div className="audio">
-                <button onClick={() => audio.play()} className="play">
+                <button
+                  onClick={() =>
+                    url
+                      ? audio.play()
+                      : alert(
+                          "Sorry there is no available audio for this word."
+                        )
+                  }
+                  className="play"
+                >
                   <i className="fa-solid fa-play"></i>
                 </button>
               </div>
