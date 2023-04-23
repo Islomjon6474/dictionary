@@ -22,7 +22,7 @@ function App() {
       await axios
         .get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
         .then((resp) => {
-          setDataResponse("Data was found");
+          setDataResponse("");
           setData(resp.data);
           console.log(resp.data);
         });
@@ -53,7 +53,7 @@ function App() {
             </button>
           </div>
         </header>
-        {data[0] && (
+        {data[0] ? (
           <div className="data">
             <div className="word">
               <div className="pronouciation">
@@ -98,6 +98,8 @@ function App() {
               );
             })}
           </div>
+        ) : (
+          <p className="notFound">{dataResponse}</p>
         )}
       </div>
     </div>
