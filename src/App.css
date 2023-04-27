@@ -54,7 +54,7 @@ header {
   border: none;
 }
 .search_icon {
-  color: #df37f2;
+  color: green;
 }
 .data {
   width: 100%;
@@ -86,7 +86,7 @@ h1 {
   text-transform: capitalize;
 }
 .phonetic {
-  color: #df37f2;
+  color: green;
 }
 .play {
   width: 60px;
@@ -98,7 +98,7 @@ h1 {
   padding: 20px;
   border-radius: 50%;
   border: none;
-  background-color: #df37f2;
+  background-color: green;
   color: white;
 }
 .meaning {
@@ -133,7 +133,7 @@ li {
   text-align: start;
 }
 li::marker {
-  color: #df37f2;
+  color: green;
 }
 .synonyms {
   display: flex;
@@ -143,7 +143,7 @@ li::marker {
   margin-top: 20px;
 }
 .synonym {
-  color: #df37f2;
+  color: green;
   font-weight: bold;
 }
 .synonymList {
@@ -152,7 +152,6 @@ li::marker {
   max-width: 100%;
   flex-wrap: wrap;
 }
-.notFound {
-  margin-top: 40px;
-  font-weight: bold;
+.notfound {
+  width: 100%;
 }
